@@ -6,9 +6,9 @@ const About = () => {
   const { t } = useTranslation();
 
   const stats = [
-    { number: '150+', labelKey: 'stats.projects' },
-    { number: '50+', labelKey: 'stats.clients' },
-    { number: '5+', labelKey: 'stats.experience' }
+    { number: '50+', labelKey: 'stats.projects' },
+    { number: '49+', labelKey: 'stats.clients' },
+    { number: '1+', labelKey: 'stats.experience' }
   ];
 
   return (
