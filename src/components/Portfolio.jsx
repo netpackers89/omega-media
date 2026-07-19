@@ -13,7 +13,6 @@ const Portfolio = () => {
     { id: 'all', label: t('portfolio.all') },
     { id: 'advertisement', label: t('portfolio.advertisement') },
     { id: 'business', label: t('portfolio.business') },
-    { id: 'entertainment', label: t('portfolio.entertainment') },
     { id: 'marketing', label: t('portfolio.marketing') },
     { id: 'digital', label: t('portfolio.digital') }
   ];
@@ -21,75 +20,57 @@ const Portfolio = () => {
   const portfolioItems = [
     {
       id: 1,
-      title: 'Afri Ads Promo',
-      category: 'advertisement',
-      videoUrl: '/assets/videos/Afri2.mp4'
+      title: 'Milo Campaign Edition',
+      category: 'marketing',
+      youtubeId: 'rSf8MjwxOFo'
     },
     {
       id: 2,
-      title: 'Afri Campaign Part I',
-      category: 'advertisement',
-      videoUrl: '/assets/videos/afri 1.mp4'
+      title: 'Insta Reel Snippet C',
+      category: 'digital',
+      youtubeId: '7E-PKI_elqY'
     },
     {
       id: 3,
-      title: 'Afri Herbal Tea Commercial',
-      category: 'advertisement',
-      videoUrl: '/assets/videos/afriherbal 3.mp4'
+      title: 'Insta Reel Snippet B',
+      category: 'digital',
+      youtubeId: 'qggIf2fT6nI'
     },
     {
       id: 4,
-      title: 'Milo Creative Cut',
-      category: 'marketing',
-      videoUrl: '/assets/videos/final milo 1.3.mp4'
+      title: 'Insta Reel Snippet A',
+      category: 'digital',
+      youtubeId: 'B-KfmvvU2w4'
     },
     {
       id: 5,
-      title: 'Milo Campaign Edition',
+      title: 'Milo Creative Cut',
       category: 'marketing',
-      videoUrl: '/assets/videos/final milo 2.4.mp4'
+      youtubeId: 'rsunV8-KSrw'
     },
     {
       id: 6,
       title: 'Omega Agency Showreel',
       category: 'business',
-      videoUrl: '/assets/videos/FINAL 2_4_2.mp4'
+      youtubeId: '-rQI8apnm7o'
     },
     {
       id: 7,
-      title: 'Creative Frame 6',
-      category: 'entertainment',
-      videoUrl: '/assets/videos/6.mov'
+      title: 'Afri Herbal Tea Commercial',
+      category: 'advertisement',
+      youtubeId: '1s4OOQ9zDUQ'
     },
     {
       id: 8,
-      title: 'Social Vlog Session',
-      category: 'digital',
-      videoUrl: '/assets/videos/VID_20260429_094833.mp4'
+      title: 'Afri Ads Promo',
+      category: 'advertisement',
+      youtubeId: '5d8KN7ZZpLc'
     },
     {
       id: 9,
-      title: 'Behind The Scenes Vlog',
-      category: 'digital',
-      videoUrl: '/assets/videos/VID_20260605_194551.mp4'
-    },
-    {
-      id: 10,
-      title: 'Insta Reel Snippet A',
-      category: 'digital',
-      videoUrl: '/assets/videos/VID_20260710_161603.mp4'
-    },
-    {
-      id: 11,
-      title: 'Insta Reel Snippet B',
-      category: 'digital',
-      videoUrl: '/assets/videos/VID_20260710_161740.mp4'
-    },
-    {
-      id: 12,
-      title: 'Insta Reel Snippet C',
-      category: 'digital',
-      videoUrl: '/assets/videos/VID_20260710_161745.mp4'
+      title: 'Afri Campaign Part I',
+      category: 'advertisement',
+      youtubeId: 'q9iIWwyK90c'
     }
   ];
 
@@ -159,7 +140,7 @@ const Portfolio = () => {
                 <VideoCard
                   title={item.title}
                   category={t(`portfolio.${item.category}`)}
-                  videoUrl={item.videoUrl}
+                  youtubeId={item.youtubeId}
                   onClick={() => setSelectedVideo(item)}
                 />
               </motion.div>
@@ -177,14 +158,11 @@ const Portfolio = () => {
             exit={{ opacity: 0 }}
             className="fixed inset-0 bg-black/95 backdrop-blur-md z-[99999] flex items-center justify-center p-4 md:p-8 overflow-hidden"
           >
-            {/* Ambient Blurred Video Background */}
-            <div className="absolute inset-0 z-0 overflow-hidden opacity-20 filter blur-3xl scale-125 pointer-events-none select-none">
-              <video
-                src={selectedVideo.videoUrl}
-                autoPlay
-                muted
-                loop
-                playsInline
+            {/* Ambient Blurred Background (Thumbnail) */}
+            <div className="absolute inset-0 z-0 overflow-hidden opacity-30 filter blur-3xl scale-125 pointer-events-none select-none">
+              <img
+                src={`https://img.youtube.com/vi/${selectedVideo.youtubeId}/hqdefault.jpg`}
+                alt="ambient"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -204,25 +182,26 @@ const Portfolio = () => {
               className="relative z-20 w-full max-w-[340px] h-[82vh] max-h-[680px] bg-black rounded-[42px] border-[6px] border-neutral-800 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] flex flex-col items-center justify-center outline-none ring-4 ring-gold/20 ring-offset-4 ring-offset-black"
             >
               {/* Notch / Speaker Ear Piece Mockup */}
-              <div className="absolute top-3 w-28 h-4.5 bg-neutral-800 rounded-full z-35 flex items-center justify-center gap-1.5 shadow-inner">
+              <div className="absolute top-3 w-28 h-4.5 bg-neutral-800 rounded-full z-[35] flex items-center justify-center gap-1.5 shadow-inner">
                 <div className="w-1.5 h-1.5 rounded-full bg-neutral-900" />
                 <div className="w-8 h-0.5 bg-neutral-950 rounded-full" />
               </div>
 
               {/* Mobile Screen Area */}
               <div className="w-full h-full rounded-[36px] overflow-hidden relative flex items-center justify-center bg-neutral-950">
-                <video
-                  src={selectedVideo.videoUrl}
-                  autoPlay
-                  controls
-                  className="w-full h-full object-cover"
-                  playsInline
+                <iframe
+                  src={`https://www.youtube.com/embed/${selectedVideo.youtubeId}?autoplay=1&mute=0&controls=0&modestbranding=1&rel=0&loop=1&playlist=${selectedVideo.youtubeId}&playsinline=1`}
+                  title={selectedVideo.title}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="w-full h-[105%] object-cover pointer-events-auto"
                 />
 
                 {/* Close Button Inside Screen */}
                 <button
                   onClick={() => setSelectedVideo(null)}
-                  className="absolute top-10 right-4 p-2 rounded-full bg-black/60 text-white hover:bg-gold hover:text-black transition-colors z-30 shadow-md border border-white/10"
+                  className="absolute top-10 right-4 p-2 rounded-full bg-black/60 text-white hover:bg-gold hover:text-black transition-colors z-[40] shadow-md border border-white/10"
                   data-cursor="pointer"
                 >
                   <X size={15} />
@@ -233,10 +212,10 @@ const Portfolio = () => {
 
                 {/* Title Overlay bar */}
                 <div className="absolute bottom-6 left-0 w-full p-4 bg-gradient-to-t from-black/95 via-black/60 to-transparent flex flex-col gap-0.5 text-white select-none pointer-events-none z-20">
-                  <span className="text-[10px] font-bold text-gold tracking-widest uppercase">
+                  <span className="text-[10px] font-bold text-gold tracking-widest uppercase drop-shadow-md">
                     {t(`portfolio.${selectedVideo.category}`)}
                   </span>
-                  <h4 className="text-xs md:text-sm font-bold font-serif">
+                  <h4 className="text-xs md:text-sm font-bold font-serif drop-shadow-md">
                     {selectedVideo.title}
                   </h4>
                 </div>
